@@ -1,73 +1,39 @@
-//Accept N numbers from user and perform addition
-
-//input
-//Value of N=5
-//Values: 10,20,30,40,50
-
-//Output
-//Addition is: 150
-
-//Algorithm
-
-/*
-START
-    Accept the number from user
-    Allocate the memory to store that numbers
-    Accept the numbers from user
-    Perform addition of all numbers
-    Display the addition
-END
-*/
-
-
-
-
-//////////////////////////////////////////////////////////////////////////////////////
-//
-// Application of N numbers
-//Input:      N numbers
-//Output:     Addition
-//Author:     Krutika Dhaval Shah
-//Date:       18th September, 2022
-/////////////////////////////////////////////////////////////////////////////////////
+//Accept N numbers from user and perform the addition of that numbers
 
 #include<stdio.h>
-#include<stdlib.h>
+
+int Summation(int Data[],int iSize)
+{
+  int iCnt = 0, iSum = 0;
+
+  for(iCnt = 0; iCnt < iSize; iCnt++)
+  {
+    iSum = iSum + Data[iCnt]; 
+  }
+  return iSum;
+}
+
 int main()
 {
+  int Arr[5];              //Static memory allocation
+  int iCnt = 0, iRet = 0;
 
-    int *Arr=NULL;
-    int iSize=0;
-    register int i=0;
-    int iSum=0;
+  printf("Enter the elements :\n");
+  for(iCnt = 0; iCnt < 5; iCnt++)
+  {
+  scanf("%d",&Arr[iCnt]);
+  }
+ 
 
-    printf("Enter number of elements\n");
-    scanf("%d",&iSize);
+  printf("Elements from array are:\n ");
 
-    Arr=(int*)malloc(iSize * sizeof(int));
+  for(iCnt = 0; iCnt < 5; iCnt++)
+  {
+    printf("%d\n",Arr[iCnt]);
+  }
 
-    printf("Memory is allocated is successful\n");
+  iRet = Summation(Arr,5);//Summation(100,5)//Name of array is internally treated as base address
+  printf("Addition of all elements is : %d\n", iRet);
 
-    printf("Enter the values of elements\n");
-
-    for(i=0; i<iSize; i++)
-    {
-        scanf("%d",&Arr[i]);
-    }
-
-    //Addition
-
-    for(i=0;i<iSize;i++)
-    {
-        iSum=iSum+Arr[i];
-        
-    }
-
-    printf("Addition is: %d\n",iSum);
-
-    free(Arr);
-
-    printf("Memory gets deallocated\n");
-
-    return 0;
+  return 0;
 }
